@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "subirproyectohitocarmelo"
+  },
+  "targets": {
+    "subirproyectohitocarmelo": {
+      "hosting": {
+        "angular-hitouno-app": [
+          "subirproyectohitocarmelo"
+        ]
+      }
+    }
+  }
+}

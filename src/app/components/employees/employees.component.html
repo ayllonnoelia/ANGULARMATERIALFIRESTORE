@@ -1,0 +1,44 @@
+<div *ngIf="employees.length > 0; else noemployees">
+    <ul class = "mat-list">
+        <li *ngFor = "let e of employees" class = "list-group-item
+        list-group-item-action">
+            <h5>{{e.nombre}}</h5>
+            <h6>{{e.pais}} </h6>
+            <p>{{e.telefono}}</p>
+            <button (click)="deleteEmployee($event, e)" mat-raised-button color="warn">
+                Eliminar
+            </button>
+            <button (click)="editEmployee($event, e)" mat-raised-button color="primary">
+                Editar
+            </button>
+            <div *ngIf="editing && editingEmployees.id == e.id">
+                <form (ngSubmit)="updateEmployees()">
+                    <div class = "form-group mt-3">
+                    <input type = "text" name="nombre" [(ngModel)]="editingEmployees.nombre" class = "form-control">
+                    </div>
+                    <div class = "form-group">
+                    <input type = "text" name="pais" [(ngModel)]="editingEmployees.pais" class = "form-control">                    
+                    </div>
+                    <div class = "form-group">
+                    <input type = "number" name="telefono" [(ngModel)]="editingEmployees.telefono" class = "form-control">                    
+                    </div>
+                    <button type = "submit" class = "btn-block" mat-raised-button color="accent">
+                        Actualizar
+                    </button>
+                </form>
+            </div>
+        </li> 
+    </ul>
+
+</div>
+
+<ng-template #noemployees>
+    <ul class="list-group mt-5">
+        <br>
+        <br>
+        <br>
+        <li class="list-group-item">Aún no se ha registrado ningún empleado</li>
+    </ul>
+</ng-template>
+
+
